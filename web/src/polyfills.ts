@@ -51,3 +51,9 @@ import 'zone.js';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+// fix for the amplify auth
+ (window as any).global = window;
+ (window as any).process = {
+   env: { DEBUG: undefined },
+ };
