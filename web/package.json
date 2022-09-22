@@ -9,7 +9,6 @@
     "lint": "ng lint",
     "test": "ng test",
     "deploy": "firebase deploy",
-
     "test:prod": "ng test --browsers=ChromeHeadless --watch=false"
   },
   "private": true,
@@ -23,6 +22,7 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "firebase-tools": "^11.9.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
