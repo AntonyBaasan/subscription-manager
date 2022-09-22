@@ -8,8 +8,11 @@ name: Deploy to Firebase Hosting on merge
       - main
 jobs:
 
-  build_and_deploy:
+  build_and_deploy_web:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
 
     strategy:
       matrix:
@@ -33,7 +36,7 @@ jobs:
           cache-name: cache-node-modules
         with:
           # caching node_modules
-          path: web/node_modules
+          path: node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
@@ -44,25 +47,21 @@ jobs:
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
           npm ci
-        working-directory: web
 
       - name: Build
         run: npm run build
-        working-directory: web
 
-      # - name: Lint
-      #   run: |
-      #     npm run lint
-      #   working-directory: web
+      - name: Lint
+        run: |
+          npm run lint
 
-      # - name: Test
-      #   run: |
-      #     npm run test:prod
-      #   working-directory: web
+      - name: Test
+        run: |
+          npm run test:prod
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          entryPoint: web
+          # entryPoint: web
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SUBSCRIPTIONMANAGER_D5905 }}'
           target: subscription-manager
