@@ -6,5 +6,5 @@ export const helloWorldFunc = (
   response: functions.Response
 ) => {
   functions.logger.info('Hello logs!', { structuredData: true });
-  response.send('Hello from Firebase, from Test 6!');
+  response.send('Hello from Firebase, from Test 6 !' + JSON.stringify(request));
 };
