@@ -66,6 +66,6 @@ jobs:
           entryPoint: web
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SUBSCRIPTIONMANAGER_D5905 }}'
-          target: subscriptionmanager-d5905
+          target: subscription-manager
           channelId: live
           projectId: subscriptionmanager-d5905
