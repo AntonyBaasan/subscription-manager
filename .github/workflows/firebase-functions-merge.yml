@@ -6,8 +6,9 @@ name: Deploy to Firebase Functions on merge
   push:
     branches:
       - main
-    paths: [ backend ]
-    
+    paths: 
+      - 'backend/**'
+
 jobs:
 
   build_and_deploy_functions:
