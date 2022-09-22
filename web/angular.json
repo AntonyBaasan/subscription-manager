@@ -100,6 +100,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "subscription-manager:build:production",
+            "firebaseProject": "subscriptionmanager-d5905",
+            "firebaseHostingSite": "subscriptionmanager-d5905"
+          }
         }
       }
     }

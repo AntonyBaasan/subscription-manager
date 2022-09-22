@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "subscriptionmanager-d5905"
+  },
+  "targets": {
+    "subscriptionmanager-d5905": {
+      "hosting": {
+        "subscription-manager": [
+          "subscriptionmanager-d5905"
+        ]
+      }
+    }
+  }
+}
