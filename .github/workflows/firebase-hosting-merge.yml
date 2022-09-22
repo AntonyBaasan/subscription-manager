@@ -50,20 +50,21 @@ jobs:
         run: npm run build
         working-directory: web
 
-      - name: Lint
-        run: |
-          npm run lint
-        working-directory: web
+      # - name: Lint
+      #   run: |
+      #     npm run lint
+      #   working-directory: web
 
-      - name: Test
-        run: |
-          npm run test:prod
-        working-directory: web
+      # - name: Test
+      #   run: |
+      #     npm run test:prod
+      #   working-directory: web
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           entryPoint: web
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SUBSCRIPTIONMANAGER_D5905 }}'
+          target: subscriptionmanager-d5905
           channelId: live
           projectId: subscriptionmanager-d5905
