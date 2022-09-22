@@ -46,8 +46,9 @@ jobs:
       - name: Install Dependencies
         # if: steps.cache-nodemodules-func.outputs.cache-hit != 'true'
         run: |
+          pwd
           rm -rf .git/hooks
-           npm ci
+          npm ci
 
       - name: Build
         run: npm run build
@@ -58,6 +59,7 @@ jobs:
 
       - name: Deploy to Firebase
         run: |
+          pwd
           npm run deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SUBSCRIPTIONMANAGER_D5905 }}
