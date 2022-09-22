@@ -29,19 +29,19 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      # - name: Cache node modules
-      #   id: cache-nodemodules-func
-      #   uses: actions/cache@v2
-      #   env:
-      #     cache-name: cache-node-modules-func
-      #   with:
-      #     # caching node_modules
-      #     path: backend/functions/node_modules
-      #     key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-build-${{ env.cache-name }}-
-      #       ${{ runner.os }}-build-
-      #       ${{ runner.os }}-
+      - name: Cache node modules
+        id: cache-nodemodules-func
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules-func
+        with:
+          # caching node_modules
+          path: backend/functions/node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
       - name: Install Dependencies
         if: steps.cache-nodemodules-func.outputs.cache-hit != 'true'
