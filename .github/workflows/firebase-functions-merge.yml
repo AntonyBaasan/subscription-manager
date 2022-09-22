@@ -44,9 +44,10 @@ jobs:
       #       ${{ runner.os }}-
 
       - name: Install Dependencies
-        if: steps.cache-nodemodules-func.outputs.cache-hit != 'true'
+        # if: steps.cache-nodemodules-func.outputs.cache-hit != 'true'
         run: |
-          npm ci
+          rm -rf .git/hooks
+           npm ci
 
       - name: Build
         run: npm run build
