@@ -12,7 +12,8 @@ export const environment = {
     messagingSenderId: '209509258810',
     measurementId: 'G-QCY8FHT4XQ',
   },
-  production: false
+  production: false,
+  backendBase: 'http://localhost:5001/subscriptionmanager-d5905/us-central1/'
 };
 
 /*

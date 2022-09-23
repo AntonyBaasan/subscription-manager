@@ -8,5 +8,6 @@ export const environment = {
     messagingSenderId: '209509258810',
     measurementId: 'G-QCY8FHT4XQ',
   },
-  production: true
+  production: true,
+  backendBase: 'https://us-central1-subscriptionmanager-d5905.cloudfunctions.net/'
 };
