@@ -3,6 +3,8 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
+name: 'web-ci'
+
 trigger:
   branches:
     include:
@@ -18,6 +20,13 @@ steps:
   inputs:
     versionSpec: '16.x'
   displayName: 'Install Node.js'
+
+- task: ACRCredential@0
+  inputs:
+    azureSubscriptionEndpoint: 'Visual Studio Enterprise Subscription(03baf857-7c17-4952-9100-7cb6b7b4d8a9)'
+    resourceGroupName: 'subsc_manager_rg'
+    containerRegistry: 'subscmanageracr'
+    actionType: 'show'
 
 - script: |
     cd web
