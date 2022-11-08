@@ -1,0 +1,12 @@
+// version for all the projects
+version = '1.0.SNAPSHOT'
+
+allprojects{
+
+}
+
+project(':gateway'){}
+project(':dataservice'){
+    depen
+}
+project(':demo'){}
